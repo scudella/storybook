@@ -1,9 +1,20 @@
+import { fn } from '@storybook/test';
+
 import Task from './Task';
+
+export const ActionsData = {
+  onArchiveTask: fn(),
+  onPinTask: fn(),
+};
 
 export default {
   title: 'Task',
   component: Task,
   tags: ['autodocs'],
+  excludeStories: /.*Data$/,
+  args: {
+    ...ActionsData,
+  },
 };
 
 export const Default = {
@@ -25,7 +36,7 @@ export const Pinned = {
   },
 };
 
-export const Archive = {
+export const Archived = {
   args: {
     task: {
       ...Default.args.task,
